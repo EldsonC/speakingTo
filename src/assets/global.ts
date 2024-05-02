@@ -14,6 +14,14 @@ export default createGlobalStyle`
     :root {
         --primary-color: #4953D8;
         --secundary-color: #FEFEFE;
+
+        --primary-100: #DBDEFD;
+        --primary-200: #B8BEFB;
+
+        --text-color-600: #090B2A;
+        --text-color-100: #B9B9B9;
+
+
     }
 
     body, html {
