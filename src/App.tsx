@@ -15,21 +15,23 @@ function App() {
   useEffect(() => {
     if (isListening) {
       const recognition = new window.webkitSpeechRecognition();
-      recognition.lang = 'en-US';
+      recognition.lang = 'pt-br';
       recognition.onresult = (event: any) => {
         const result = event.results[0][0].transcript;
-        result === "dark mode" || result === "light mode" ? null : setTranscript(prevTranscript => prevTranscript + ' ' + result);
-        result === "dark mode" ? setTheme(true) : setTheme(false);
-        result === "light mode" ? setTheme(false) : setTheme(true);
+        result === "mudar tema" ? null : setTranscript(prevTranscript => prevTranscript + ' ' + result);
+
+        if (result === "mudar tema") {
+          theme ? setTheme(false) : setTheme(true);
+        }
 
         setStatus("I'm listening")
         recognition.stop();
         recognition.start(); // Restart recognition to continue listening
       };
       recognition.start();
-      setStatus("Said Hello!")
     }
-
+    
+    setStatus("Said Hello!")
 
   }, [isListening]);
 
